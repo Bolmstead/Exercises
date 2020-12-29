@@ -1,0 +1,46 @@
+#game div {
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 150px;
+  height: 200px;
+  background-color: white;
+  left: 50%;
+  margin: 10px;
+}
+#game{
+  display: grid;
+  justify-content: center;
+  max width: 800px;
+  grid-template-columns:  175px 175px 175px 175px 175px;
+}
+
+h1 {
+  text-align: center;
+
+}
+
+#scorelabel{
+  font-size: 1.5em;
+}
+
+body {
+  margin: 0;
+  background-color: #c9e0e8;
+}
+
+.startbtn {
+  display: block;
+  margin: auto;
+  width: 100px;
+  padding: 10px;
+}
+
+.resetBtn {
+  display: block;
+  margin: auto;
+  width: 100px;
+  padding: 10px;
+
+.toprow{
+  display: grid;
+}

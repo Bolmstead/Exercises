@@ -1,0 +1,94 @@
+/* game board table */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+  display: grid;
+  justify-content: center;
+  background-color: #D6F3F4;
+}
+
+#title {
+  text-align: center;
+  font-family: Poppins;
+  font-size: 3em;
+  margin: 0px;
+  padding: 0px;
+}
+
+#whosUp {
+  text-align: center;
+  font-family: Roboto;
+  font-size: 1.5em;
+  margin-bottom: 40px;
+}
+
+.pl1Title {
+  color: red;
+}
+
+.pl2Title {
+  color: blue;
+}
+
+.blink {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+#board td {
+  width: 50px;
+  height: 50px;
+  border: solid 1px #666;
+}
+
+/* pieces are div within game table cells: draw as colored circles */
+.piece {
+  /* DONE TODO: make into circles */
+  margin: 5px;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+}
+
+/* DONE TODO: make pieces red/blue,  depending on player 1/2 piece */
+/* red piece */
+.pl1 {
+  margin: 5px;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background-color: red;
+}
+/* blue piece */
+.pl2 {
+  margin: 5px;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background-color: blue;
+}
+/* column-top is table row of clickable areas for each column */
+#column-top td {
+  border: dashed 1px lightgray;
+}
+
+#column-top td:hover {
+  background-color: gold;
+  border-radius: 50%;
+}
+
+#button {
+  font-family: Roboto;
+  padding: 5px 10px 5px 10px;
+}
+
+#btnDiv {
+  text-align: center;
+  margin-top: 30px;
+}
