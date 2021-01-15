@@ -14,7 +14,7 @@ function Boxlist() {
   }
 
   const remove = (box) => {
-    setBoxes(boxes.filter(n => n !== box.id)
+    setBoxes(boxes.filter(n => n.id !== box.id)
     );
   }
   
