@@ -14,13 +14,15 @@ function Boxlist() {
   }
 
   const remove = (box) => {
-    console.log("REMOVING BOX", box)
+    setBoxes(boxes.filter(n => n !== box.id)
+    );
   }
+  
   return (
     <div >
       <NewBoxForm addBox={addBox}/>
       <div>
-        {boxes.map(({ id, color, height, width}) => <Box id={id} color={color} height={height} width={width} remove={remove}/>)}
+        {boxes.map((box) => <Box id={box.id} color={box.color} height={box.height} width={box.width} remove={remove}/>)}
       </div>
     </div>
   );
