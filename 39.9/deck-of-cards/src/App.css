@@ -1,0 +1,12 @@
+.box {
+  position: relative;
+}
+
+.card {
+  height: 300px;
+  width: 200px;
+  border-width: 2px;
+  border-color: black;
+  border: solid;
+  border-radius: 10px;
+}
