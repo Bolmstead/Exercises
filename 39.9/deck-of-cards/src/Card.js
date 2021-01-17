@@ -18,7 +18,7 @@ async function Card(props) {
     return (
     <div className="card">
         <h1>
-            hey
+            props.number
         </h1>
     </div>
     )

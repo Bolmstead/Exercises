@@ -14,11 +14,11 @@ function CardsList() {
   // })
 
   const initialState = []
+  const cardsListKey = uuid()
 
   const [cards, setCards] = useState(initialState)
-  const addCard = (e) => {
-    e.preventDefault();
-    setCards(cards => [...cards, { id: uuid(), }])
+  const addCard = (number, suit) => {
+    setCards(cards => [...cards, { id: uuid(), number, suit }])
   }
 
   const remove = (card) => {
@@ -26,20 +26,23 @@ function CardsList() {
     );
   }
 
-  async function shuffleDeck() { 
-    const res = await axios.get("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1");
-    return res}
+  // async function shuffleDeck() { 
+  //   const res = await axios.get("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1");
+  //   return res}
 
   // let shuffledDeck = shuffleDeck()
   // console.log("shuffledDeck", shuffledDeck)
+
+  let cardNum = 5;
+  let cardSuit = "hearts";
   
   return (
-    <div >
-      <form onSubmit= {addCard}>
+    <div key={cardsListKey}>
+      <form onSubmit= {addCard(cardNum, cardSuit)}>
         <button>Draw a Card!</button>
       </form>
       <div>
-        {cards.map((card) => <Card id={card.id} remove={remove} />)}
+        {cards.map((card) => <Card id={card.id} number={card.number} suit={card.suit} remove={remove} />)}
       </div>
     </div>
   );
