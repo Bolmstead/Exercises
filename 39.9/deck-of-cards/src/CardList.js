@@ -16,10 +16,16 @@ function CardsList() {
   const initialState = []
   const cardsListKey = uuid()
 
+  
+  let cardNum = 5;
+  let cardSuit = "hearts";
+
   const [cards, setCards] = useState(initialState)
-  const addCard = (number, suit) => {
-    setCards(cards => [...cards, { id: uuid(), number, suit }])
+  const addCard = () => {
+    setCards(cards => [...cards, { id: uuid(), cardNum, cardSuit }])
   }
+
+  
 
   const remove = (card) => {
     setCards(cards.filter(n => n.id !== card.id)
@@ -33,16 +39,12 @@ function CardsList() {
   // let shuffledDeck = shuffleDeck()
   // console.log("shuffledDeck", shuffledDeck)
 
-  let cardNum = 5;
-  let cardSuit = "hearts";
   
   return (
     <div key={cardsListKey}>
-      <form onSubmit= {addCard(cardNum, cardSuit)}>
-        <button>Draw a Card!</button>
-      </form>
+      <button onClick= {addCard}>Draw a Card!</button>
       <div>
-        {cards.map((card) => <Card id={card.id} number={card.number} suit={card.suit} remove={remove} />)}
+        {cards.map((card) => <Card id={card.id} number={card.cardNum} suit={card.cardSuit} remove={remove} />)}
       </div>
     </div>
   );

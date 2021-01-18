@@ -16,7 +16,7 @@ async function Card(props) {
     // } 
 
     return (
-    <div className="card">
+    <div key={props.id}>
         <h1>
             props.number
         </h1>
