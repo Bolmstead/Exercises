@@ -7,37 +7,31 @@ import axios from "axios";
 
 function CardsList() {
 
-  // useEffect(() => {
-  //   async function shuffleDeck() {
-  //     const res = await axios.get("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1");
-  //     console.log("res: ", res)}, []
-  // })
-
   const initialState = []
   const cardsListKey = uuid()
-
-  
-  let cardNum = 5;
-  let cardSuit = "hearts";
-
+  const [deck, setDeck] = useState(null);
   const [cards, setCards] = useState(initialState)
-  const addCard = () => {
-    setCards(cards => [...cards, { id: uuid(), cardNum, cardSuit }])
-  }
 
-  
+  useEffect(() => { 
+    async function grabDeckId(){
+      const res = await axios.get("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1");
+      console.log("deck_id", res.data.deck_id)
+      setDeck(res.data)
+    }
+    grabDeckId()
+  }, [setDeck])
+
+  async function addCard() {
+    console.log("deck", deck)
+    let res = await axios.get(`http://deckofcardsapi.com/api/deck/${deck.deck_id}/draw/`);
+    console.log(res)
+    // setCards(cards => [...cards, { id: uuid(), cardNum, cardSuit }])
+  }
 
   const remove = (card) => {
     setCards(cards.filter(n => n.id !== card.id)
     );
   }
-
-  // async function shuffleDeck() { 
-  //   const res = await axios.get("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1");
-  //   return res}
-
-  // let shuffledDeck = shuffleDeck()
-  // console.log("shuffledDeck", shuffledDeck)
 
   
   return (
