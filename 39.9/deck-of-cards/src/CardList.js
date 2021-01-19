@@ -44,7 +44,7 @@ function CardsList() {
     <div key={cardsListKey}>
       <button onClick= {addCard}>Draw a Card!</button>
       <div>
-        {cards.map((card) => <Card id={card.id} number={card.cardNum} suit={card.cardSuit} remove={remove} />)}
+        {cards.map((card) => <Card key={card.id} number={card.cardNum} suit={card.cardSuit} remove={remove} />)}
       </div>
     </div>
   );

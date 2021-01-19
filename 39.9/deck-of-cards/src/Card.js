@@ -3,7 +3,7 @@ import './App.css';
 import axios from "axios";
 
 
-async function Card(props) {
+function Card(props) {
 
     let propsVar = props;
 
@@ -16,9 +16,9 @@ async function Card(props) {
     // } 
 
     return (
-    <div key={props.id}>
+    <div key={props.key}>
         <h1>
-            props.number
+            {props.number}
         </h1>
     </div>
     )
